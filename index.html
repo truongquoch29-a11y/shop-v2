@@ -14,17 +14,24 @@ body{
   transition:background 0.4s ease, color 0.4s ease;
 }
 
+/* ===== LIGHT MODE FIX ===== */
+
 body.light{
   background:#f2f4f8;
-  color:#000;
+  color:#111;
 }
 
+/* đảm bảo tất cả text đổi màu */
+body.light *{
+  color:#111 !important;
+}
+
+/* nền các khối */
 body.light .card,
 body.light header,
 body.light .marquee,
 body.light .popup{
-  background:#fff;
-  color:#000;
+  background:#ffffff;
 }
 
 #themeToggle{
@@ -279,7 +286,7 @@ header{
 <header>
     <div class="logo">
         <img src="logo.png">
-        <span>SHOPQUYTHESPIKE.XYZ</span>
+        <span>SHOPTHTSC</span>
     </div>
     <div class="icons">
 
