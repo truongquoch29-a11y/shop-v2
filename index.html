@@ -6,6 +6,35 @@
 <title>SHOP ACC</title>
 
 <style>
+    /* ===== DARK MODE ===== */
+
+body{
+  background:#0f172a;
+  color:#fff;
+  transition:background 0.4s ease, color 0.4s ease;
+}
+
+body.light{
+  background:#f2f4f8;
+  color:#000;
+}
+
+body.light .card,
+body.light header,
+body.light .marquee,
+body.light .popup{
+  background:#fff;
+  color:#000;
+}
+
+#themeToggle{
+  cursor:pointer;
+  transition:transform 0.5s ease, opacity 0.3s ease;
+}
+
+.rotate{
+  transform:rotate(360deg) scale(1.2);
+}
 *{
     margin:0;
     padding:0;
@@ -253,8 +282,8 @@ header{
         <span>SHOPQUYTHESPIKE.XYZ</span>
     </div>
     <div class="icons">
-        <span>🌐</span>
-        <span>🌙</span>
+
+<span id="themeToggle">🌙</span>
         <span>🎨</span>
         <span>☰</span>
     </div>
@@ -301,6 +330,32 @@ function hidePopup(){
     popup.style.display="none";
     localStorage.setItem("hidePopupUntil", Date.now()+2*60*60*1000);
 }
+    /* ===== TOGGLE DARK / LIGHT ===== */
+
+const toggle = document.getElementById("themeToggle");
+
+if(localStorage.getItem("theme")==="light"){
+  document.body.classList.add("light");
+  toggle.textContent="☀";
+}
+
+toggle.onclick = function(){
+  toggle.classList.add("rotate");
+
+  setTimeout(()=>{
+    toggle.classList.remove("rotate");
+  },500);
+
+  document.body.classList.toggle("light");
+
+  if(document.body.classList.contains("light")){
+    toggle.textContent="☀";
+    localStorage.setItem("theme","light");
+  }else{
+    toggle.textContent="🌙";
+    localStorage.setItem("theme","dark");
+  }
+};
 </script>
 
 </body>
