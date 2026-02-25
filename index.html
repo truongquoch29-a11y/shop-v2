@@ -6,59 +6,6 @@
 <title>SHOP ACC</title>
 
 <style>
-    .theme-icon{
-  cursor:pointer;
-  display:inline-block;
-  transition:transform 0.6s ease, opacity 0.3s ease;
-}
-
-/* hiệu ứng xoay + fade */
-.theme-icon.switching{
-  transform:rotate(360deg) scale(1.2);
-  opacity:0;
-}
-
-/* hiệu ứng xuất hiện */
-.theme-icon.show{
-  opacity:1;
-  transform:rotate(0deg) scale(1);
-}
-    /* ===== DARK MODE ===== */
-
-body{
-  background:#0f172a;
-  color:#fff;
-  transition:background 0.4s ease, color 0.4s ease;
-}
-
-/* ===== LIGHT MODE FIX ===== */
-
-body.light{
-  background:#f2f4f8;
-  color:#111;
-}
-
-/* đảm bảo tất cả text đổi màu */
-body.light *{
-  color:#111 !important;
-}
-
-/* nền các khối */
-body.light .card,
-body.light header,
-body.light .marquee,
-body.light .popup{
-  background:#ffffff;
-}
-
-#themeToggle{
-  cursor:pointer;
-  transition:transform 0.5s ease, opacity 0.3s ease;
-}
-
-.rotate{
-  transform:rotate(360deg) scale(1.2);
-}
 *{
     margin:0;
     padding:0;
@@ -66,30 +13,42 @@ body.light .popup{
     font-family:Segoe UI,sans-serif;
 }
 
+/* ===== DARK MODE MẶC ĐỊNH ===== */
 body{
-    background:#f2f4f8;
+    background:#0f172a;
+    color:#f1f5f9;
+    transition:background 0.4s ease, color 0.4s ease;
     animation:fadePage 0.8s ease;
 }
 
+/* ===== LIGHT MODE ===== */
+body.light{
+    background:#f2f4f8;
+    color:#111827;
+}
+
+body.light header,
+body.light .card,
+body.light .marquee,
+body.light .popup{
+    background:#ffffff;
+    color:#111827;
+}
+
+/* ===== PAGE FADE ===== */
 @keyframes fadePage{
     from{opacity:0;transform:translateY(15px)}
     to{opacity:1;transform:translateY(0)}
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
-    background:#fff;
+    background:#1e293b;
     padding:15px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 5px 25px rgba(0,0,0,0.08);
-    animation:slideDown 0.7s ease;
-}
-
-@keyframes slideDown{
-    from{transform:translateY(-40px);opacity:0}
-    to{transform:translateY(0);opacity:1}
+    box-shadow:0 5px 25px rgba(0,0,0,0.2);
 }
 
 .logo{
@@ -110,7 +69,7 @@ header{
 .logo span{
     font-weight:bold;
     font-size:18px;
-    color:#6a00ff;
+    color:#a855f7;
 }
 
 .icons{
@@ -128,13 +87,13 @@ header{
     transform:scale(1.2);
 }
 
-/* MARQUEE */
+/* ===== MARQUEE ===== */
 .marquee{
-    background:#fff;
+    background:#1e293b;
     margin:15px;
     padding:12px;
     border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
     overflow:hidden;
 }
 
@@ -150,29 +109,23 @@ header{
     to{transform:translateX(-100%)}
 }
 
-/* CARD */
+/* ===== CARD ===== */
 .container{
     padding:15px;
 }
 
 .card{
-    background:#fff;
+    background:#1e293b;
     border-radius:20px;
     padding:15px;
     margin-bottom:25px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
     transition:0.4s;
-    animation:cardUp 0.8s ease;
-}
-
-@keyframes cardUp{
-    from{opacity:0;transform:translateY(30px)}
-    to{opacity:1;transform:translateY(0)}
 }
 
 .card:hover{
     transform:translateY(-8px);
-    box-shadow:0 25px 45px rgba(0,0,0,0.2);
+    box-shadow:0 25px 45px rgba(0,0,0,0.4);
 }
 
 .image-wrap{
@@ -217,22 +170,18 @@ header{
 }
 
 .badge{
-    background:#2ecc71;
+    background:#22c55e;
     color:#fff;
     padding:6px 10px;
     border-radius:8px;
     font-size:13px;
-    transition:0.3s;
-}
-
-.badge:hover{
-    transform:translateY(-3px);
 }
 
 .price{
     font-size:20px;
     font-weight:bold;
     margin:10px 0;
+    color:#facc15;
 }
 
 .btn{
@@ -244,8 +193,6 @@ header{
     border-radius:10px;
     text-decoration:none;
     font-weight:bold;
-    position:relative;
-    overflow:hidden;
     transition:0.3s;
 }
 
@@ -253,41 +200,16 @@ header{
     background:#333;
 }
 
-/* Ripple */
-.btn::after{
-    content:"";
-    position:absolute;
-    width:0;
-    height:0;
-    background:rgba(255,255,255,0.4);
-    border-radius:50%;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    transition:0.6s;
-}
-
-.btn:active::after{
-    width:300px;
-    height:300px;
-}
-
-/* POPUP */
+/* ===== POPUP ===== */
 .popup{
     position:fixed;
     bottom:20px;
     right:20px;
-    background:#fff;
+    background:#1e293b;
     padding:15px;
     border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
     width:280px;
-    animation:popupSlide 0.7s ease;
-}
-
-@keyframes popupSlide{
-    from{transform:translateY(60px);opacity:0}
-    to{transform:translateY(0);opacity:1}
 }
 
 .close{
@@ -298,6 +220,7 @@ header{
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -306,19 +229,17 @@ header{
         <span>SHOPTHTSC</span>
     </div>
     <div class="icons">
-
-<span id="themeToggle">🌙</span>
+        <span id="themeToggle">🌙</span>
         <span>🎨</span>
         <span>☰</span>
     </div>
 </header>
 
 <div class="marquee">
-    <p>🔥 Shop bán acc uy tín - Bảo hành gmail 7 ngày - Hỗ trợ 24/7 - Tham gia nhóm Zalo để nhận ưu đãi 🔥</p>
+    <p>🔥 Shop bán acc uy tín - Bảo hành gmail 7 ngày - Hỗ trợ 24/7 🔥</p>
 </div>
 
 <div class="container">
-
     <div class="card">
         <div class="image-wrap">
             <img src="images/A4.jpg">
@@ -333,7 +254,6 @@ header{
         <div class="price">130.000 đ</div>
         <a href="detailacc1.html" class="btn">Chi Tiết</a>
     </div>
-
 </div>
 
 <div class="popup" id="popup">
@@ -354,39 +274,25 @@ function hidePopup(){
     popup.style.display="none";
     localStorage.setItem("hidePopupUntil", Date.now()+2*60*60*1000);
 }
-    /* ===== TOGGLE DARK / LIGHT ===== */
 
+/* TOGGLE THEME */
 const toggle = document.getElementById("themeToggle");
 
 if(localStorage.getItem("theme")==="light"){
-  document.body.classList.add("light");
-  toggle.textContent="☀";
+    document.body.classList.add("light");
+    toggle.textContent="☀";
 }
 
 toggle.onclick = function(){
-
-  toggle.classList.add("switching");
-
-  setTimeout(()=>{
-
     document.body.classList.toggle("light");
 
     if(document.body.classList.contains("light")){
-      toggle.textContent="☀";
-      localStorage.setItem("theme","light");
+        toggle.textContent="☀";
+        localStorage.setItem("theme","light");
     }else{
-      toggle.textContent="🌙";
-      localStorage.setItem("theme","dark");
+        toggle.textContent="🌙";
+        localStorage.setItem("theme","dark");
     }
-
-    toggle.classList.remove("switching");
-    toggle.classList.add("show");
-
-    setTimeout(()=>{
-      toggle.classList.remove("show");
-    },300);
-
-  },300);
 };
 </script>
 
