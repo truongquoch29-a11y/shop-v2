@@ -6,6 +6,23 @@
 <title>SHOP ACC</title>
 
 <style>
+    .theme-icon{
+  cursor:pointer;
+  display:inline-block;
+  transition:transform 0.6s ease, opacity 0.3s ease;
+}
+
+/* hiệu ứng xoay + fade */
+.theme-icon.switching{
+  transform:rotate(360deg) scale(1.2);
+  opacity:0;
+}
+
+/* hiệu ứng xuất hiện */
+.theme-icon.show{
+  opacity:1;
+  transform:rotate(0deg) scale(1);
+}
     /* ===== DARK MODE ===== */
 
 body{
