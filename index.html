@@ -6,77 +6,55 @@
 <title>SHOP ACC TH</title>
 
 <style>
-.shop-notice{
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    padding:22px;
-    border-radius:18px;
-    margin-bottom:30px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.45);
-    border:1px solid rgba(255,255,255,0.08);
-}
-
-.notice-header{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:12px;
-}
-
-.notice-icon{
-    font-size:26px;
+.shop-notice-box{
+    background:#f3f4f6;
+    padding:20px;
+    border-radius:16px;
+    margin:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    border:2px solid #e5e7eb;
 }
 
 .notice-title{
-    font-size:18px;
+    font-size:20px;
     font-weight:700;
-    color:#facc15;
-    letter-spacing:0.5px;
+    margin-bottom:15px;
+    color:#111827;
 }
 
-.notice-body{
-    font-size:14px;
-    line-height:1.7;
-    color:#e2e8f0;
-    margin-bottom:18px;
+.notice-content{
+    font-size:15px;
+    line-height:1.8;
+    color:#1f2937;
 }
 
-.notice-contact{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.contact-line{
+.notice-link{
     text-decoration:none;
-    font-weight:600;
-    font-size:14px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 14px;
+    font-weight:700;
+    display:inline-block;
+    padding:8px 14px;
     border-radius:10px;
     transition:0.3s;
 }
 
-.contact-line.zalo{
-    background:rgba(0,104,255,0.15);
-    color:#3b82f6;
-    border:1px solid rgba(59,130,246,0.4);
+.notice-link.zalo{
+    background:#e0f2fe;
+    color:#0284c7;
 }
 
-.contact-line.facebook{
-    background:rgba(24,119,242,0.15);
-    color:#60a5fa;
-    border:1px solid rgba(96,165,250,0.4);
+.notice-link.facebook{
+    background:#e0e7ff;
+    color:#1d4ed8;
 }
 
-.contact-line:hover{
-    transform:translateX(6px);
-    box-shadow:0 6px 18px rgba(0,0,0,0.4);
+.notice-link.group{
+    background:#dcfce7;
+    color:#15803d;
 }
 
-.contact-icon{
-    font-size:18px;
+.notice-link:hover{
+    transform:translateX(5px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 body{
     background:#0f172a;
@@ -335,32 +313,47 @@ body.light-mode .theme-toggle{
 
 <div class="container">
      <!-- THÔNG BÁO TỪ SHOP -->
-    <div class="shop-notice">
-        <div class="notice-header">
-            <span class="notice-icon">📢</span>
-            <span class="notice-title">THÔNG BÁO QUAN TRỌNG TỪ SHOP</span>
-        </div>
+    <<!-- THÔNG BÁO TỪ SHOP -->
+<div class="shop-notice-box">
 
-        <div class="notice-body">
-            Shop hiện đang triển khai chương trình ưu đãi số lượng lớn với nhiều acc chất lượng cao, 
-            thông tin minh bạch, đúng mô tả, hỗ trợ kiểm tra trước khi giao dịch. 
-            Tất cả tài khoản đều được kiểm duyệt kỹ, đảm bảo an toàn và bảo hành theo chính sách của shop. 
-            Giao dịch nhanh chóng, tự động, hạn chế chờ đợi. 
-            Nếu cần tư vấn thêm, hỗ trợ chọn acc phù hợp hoặc giải đáp thắc mắc, vui lòng liên hệ trực tiếp qua các kênh chính thức bên dưới.
-        </div>
-
-        <div class="notice-contact">
-            <a href="https://zalo.me/yourid" target="_blank" class="contact-line zalo">
-                <span class="contact-icon">💬</span>
-                Liên hệ Zalo tại đây để được hỗ trợ nhanh và trực tiếp
-            </a>
-
-            <a href="https://facebook.com/yourpage" target="_blank" class="contact-line facebook">
-                <span class="contact-icon">📘</span>
-                Liên hệ Facebook tại đây để được tư vấn chi tiết hơn
-            </a>
-        </div>
+    <div class="notice-title">
+        📢 THÔNG BÁO TỪ SHOP
     </div>
+
+    <div class="notice-content">
+        🔔 <strong>Anh em lưu ý:</strong><br>
+        🌐 Website chính thức: <strong>Shopquythespike.xyz</strong><br><br>
+
+        Nếu có bất kỳ vấn đề, thắc mắc hoặc cần hỗ trợ, vui lòng liên hệ ngay bên dưới để được phản hồi nhanh nhất:
+        <br><br>
+
+        📱 
+        <a href="https://zalo.me/yourid" target="_blank" class="notice-link zalo">
+            BẤM VÀO ĐÂY ĐỂ ĐƯỢC HỖ TRỢ QUA ZALO
+        </a>
+        <br><br>
+
+        📘 
+        <a href="https://facebook.com/yourpage" target="_blank" class="notice-link facebook">
+            LIÊN HỆ FACEBOOK TẠI ĐÂY ĐỂ ĐƯỢC TƯ VẤN
+        </a>
+        <br><br>
+
+        🚀 
+        <a href="https://zalo.me/g/yourgroup" target="_blank" class="notice-link group">
+            BẤM VÀO ĐÂY ĐỂ THAM GIA NHÓM ZALO CẬP NHẬT THÔNG TIN MỚI NHẤT
+        </a>
+
+        <br><br>
+
+        ✅ Có nhiều loại clone cho anh em lựa chọn<br>
+        ✅ Bán acc từ cùi → VIP<br>
+        ✅ Thu mua acc cho anh em chán game<br>
+        ✅ Nhận cày Ball & vàng uy tín<br>
+        🔒 Uy tín – Nhanh gọn – Hỗ trợ 24/7
+    </div>
+
+</div>
     <div class="card">
 
         <div class="image-wrap">
