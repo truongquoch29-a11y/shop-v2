@@ -6,6 +6,45 @@
 <title>SHOP ACC TH</title>
 
 <style>
+    /* ===== SHOP NOTICE ===== */
+.shop-notice{
+    background:#ffffff;
+    color:#0f172a;
+    margin:15px;
+    padding:15px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+    transition:all 0.25s ease;
+}
+
+.shop-notice:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+.notice-icon{
+    font-size:24px;
+}
+
+.notice-title{
+    font-weight:bold;
+    font-size:16px;
+}
+
+.notice-desc{
+    font-size:13px;
+    opacity:0.8;
+}
+
+.notice-arrow{
+    margin-left:auto;
+    font-size:22px;
+    font-weight:bold;
+}
 *{
     margin:0;
     padding:0;
@@ -318,7 +357,24 @@ window.addEventListener("load",function(){
         popup.style.animation="slideOut 0.6s forwards";
     },10000);
 });
-</script>
 
+function openSupport(){
+    /* THAY LINK BÊN DƯỚI BẰNG LINK ZALO HOẶC FACEBOOK CỦA BẠN */
+    window.open("https://zalo.me/xxxxxxxxxx","_blank");
+
+    /* Hoặc dùng Facebook:
+       window.open("https://facebook.com/yourpage","_blank");
+    */
+}
+</script>
+<!-- ===== THÔNG BÁO TỪ SHOP ===== -->
+<div class="shop-notice" onclick="openSupport()">
+    <div class="notice-icon">📢</div>
+    <div class="notice-content">
+        <div class="notice-title">THÔNG BÁO TỪ SHOP</div>
+        <div class="notice-desc">Bấm vào đây để được hỗ trợ nhanh qua Zalo hoặc Facebook</div>
+    </div>
+    <div class="notice-arrow">›</div>
+</div>
 </body>
 </html>
