@@ -340,45 +340,46 @@ body.light-mode .theme-toggle{
 
 /* ===== NÚT XEM CHI TIẾT BẮT MẮT ===== */
 .detail-btn{
+.detail-btn{
     display:block;
     width:80%;
-    margin:16px auto 0;
-    padding:14px;
+    margin:18px auto 0;
+    padding:15px;
     text-align:center;
-    font-weight:600;
+    font-weight:700;
     letter-spacing:1px;
     color:#fff;
     text-decoration:none;
-    border-radius:12px;
-    background:linear-gradient(90deg,#00ffc8,#00bfff);
-    box-shadow:0 6px 18px rgba(0,255,200,0.25);
+    border-radius:16px;
+    background:linear-gradient(135deg,#ff0066,#ff8c00);
     position:relative;
     overflow:hidden;
-    transition:0.3s ease;
+    transition:0.25s ease;
+    animation:pulseGlow 1.8s infinite;
 }
 
-/* Hover nổi bật */
+/* Hiệu ứng phát sáng nhịp tim */
+@keyframes pulseGlow{
+    0%{
+        box-shadow:0 0 0 rgba(255,0,102,0.6);
+    }
+    50%{
+        box-shadow:0 0 25px rgba(255,0,102,0.8);
+    }
+    100%{
+        box-shadow:0 0 0 rgba(255,0,102,0.6);
+    }
+}
+
+/* Khi hover */
 .detail-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 22px rgba(0,255,200,0.4);
+    transform:scale(1.06);
 }
 
-/* Sóng chạy nhẹ */
-.detail-btn::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
-    transition:0.6s;
+/* Hiệu ứng ripple khi bấm */
+.detail-btn:active{
+    transform:scale(0.96);
 }
-
-.detail-btn:hover::before{
-    left:100%;
-}
-
 /* Animation khi rời trang */
 body.fade-out{
     opacity:0;
