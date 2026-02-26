@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHOP ACC</title>
+<title>SHOP ACC TH</title>
 
 <style>
 *{
@@ -52,19 +52,19 @@ header{
     display:block;
 }
 
-/* ===== THEME BUTTON NHỎ GỌN ===== */
+/* ===== THEME BUTTON NHỎ + ANIMATION ===== */
 .theme-toggle{
-    width:38px;
-    height:38px;
+    width:32px;
+    height:32px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#0f172a;
+    background:#0b1220;
     cursor:pointer;
-    font-size:18px;
-    transition:all 0.3s ease;
-    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+    font-size:16px;
+    transition:all 0.4s ease;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
 }
 
 body.light-mode .theme-toggle{
@@ -72,7 +72,16 @@ body.light-mode .theme-toggle{
 }
 
 .theme-toggle:hover{
-    transform:scale(1.1);
+    transform:scale(1.15) rotate(20deg);
+}
+
+.theme-rotate{
+    animation:spinTheme 0.5s ease;
+}
+
+@keyframes spinTheme{
+    from{transform:rotate(0deg) scale(1);}
+    to{transform:rotate(360deg) scale(1.2);}
 }
 
 /* ===== MARQUEE ===== */
@@ -173,39 +182,53 @@ body.light-mode .theme-toggle{
     color:#facc15;
 }
 
-/* ===== BUTTON XEM CHI TIẾT CÓ ANIMATION ===== */
+/* ===== NÚT XEM CHI TIẾT BẮT MẮT ===== */
 .btn{
     display:block;
     text-align:center;
-    padding:12px;
-    border-radius:12px;
+    padding:13px;
+    border-radius:14px;
     text-decoration:none;
     font-weight:bold;
     color:#fff;
-    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    background:linear-gradient(135deg,#2563eb,#7c3aed,#ec4899);
+    background-size:200% 200%;
+    animation:gradientMove 4s ease infinite;
     position:relative;
     overflow:hidden;
-    transition:transform 0.25s ease;
+    transition:all 0.25s ease;
+    letter-spacing:1px;
 }
 
-.btn::before{
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 12px 25px rgba(124,58,237,0.6);
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* Hiệu ứng ánh sáng lướt */
+.btn::after{
     content:"";
     position:absolute;
     top:0;
     left:-100%;
     width:100%;
     height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
     transition:0.6s;
 }
 
-.btn:hover::before{
+.btn:hover::after{
     left:100%;
-}
-
-.btn:hover{
-    transform:translateY(-3px) scale(1.03);
-    box-shadow:0 10px 25px rgba(124,58,237,0.6);
 }
 
 /* ===== POPUP ===== */
@@ -278,11 +301,16 @@ function toggleTheme(){
     const body=document.body;
     const icon=document.getElementById("themeIcon");
 
+    icon.classList.add("theme-rotate");
+
     body.classList.toggle("light-mode");
-    icon.textContent = body.classList.contains("light-mode") ? "☀️" : "🌙";
+
+    setTimeout(()=>{
+        icon.textContent = body.classList.contains("light-mode") ? "☀️" : "🌙";
+        icon.classList.remove("theme-rotate");
+    },300);
 }
 
-/* Popup */
 window.addEventListener("load",function(){
     const popup=document.getElementById("popup");
     popup.style.animation="slideIn 0.6s forwards";
