@@ -289,62 +289,53 @@ body.light-mode .theme-toggle{
 
 /* ===== PRICE BOX ===== */
 .price-box{
-    background:linear-gradient(135deg,#7b3fe4,#ff4fa3);
-    padding:18px;
-    border-radius:18px;
+    background:#141a2e;
+    border-radius:12px;
+    padding:14px;
     text-align:center;
-    margin:18px 0;
+    margin:14px 0;
+    border:1px solid rgba(0,255,200,0.25);
     position:relative;
-    overflow:hidden;
-    animation:priceFloat 3s ease-in-out infinite;
+    width:85%;
+    margin-left:auto;
+    margin-right:auto;
+    animation:priceSoft 3s ease-in-out infinite;
 }
 
-/* Viền sáng nhẹ */
-.price-box::before{
+.price-box::after{
     content:"";
     position:absolute;
     inset:0;
-    border-radius:18px;
-    padding:2px;
-    background:linear-gradient(45deg,#ffffff55,#ffffff00,#ffffff55);
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;
-            mask-composite:exclude;
+    border-radius:12px;
+    box-shadow:0 0 14px rgba(0,255,200,0.12);
     pointer-events:none;
 }
 
-/* Giá cũ */
 .old-price{
-    color:#ffffffaa;
-    text-decoration:line-through;
-    font-size:18px;
     display:block;
-    margin-bottom:5px;
+    color:#8b93b3;
+    font-size:14px;
+    text-decoration:line-through;
+    margin-bottom:4px;
 }
 
-/* Giá mới */
 .new-price{
-    font-size:32px;
+    font-size:24px;
     font-weight:700;
-    color:#ffe600;
+    color:#00ffc8;
+    letter-spacing:0.5px;
+    transition:0.3s;
+}
+
+.price-box:hover .new-price{
     letter-spacing:1px;
-    animation:priceGlow 2s ease-in-out infinite;
+    text-shadow:0 0 10px rgba(0,255,200,0.5);
 }
 
-/* Nhẹ nhàng nhô lên xuống */
-@keyframes priceFloat{
+@keyframes priceSoft{
     0%{ transform:translateY(0px); }
-    50%{ transform:translateY(-4px); }
+    50%{ transform:translateY(-2px); }
     100%{ transform:translateY(0px); }
-}
-
-/* Phát sáng nhẹ */
-@keyframes priceGlow{
-    0%{ text-shadow:0 0 5px rgba(255,230,0,0.6); }
-    50%{ text-shadow:0 0 15px rgba(255,230,0,1); }
-    100%{ text-shadow:0 0 5px rgba(255,230,0,0.6); }
 }
 
 /* ===== NÚT XEM CHI TIẾT BẮT MẮT ===== */
