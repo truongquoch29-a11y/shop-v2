@@ -1,6 +1,36 @@
 
 <!DOCTYPE html>  <html lang="vi">    <head>      <meta charset="UTF-8">        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
-<title>SHOP ACC TH</title>  <style>        
+<title>SHOP ACC TH</title>  <style> 
+    /* ===== POPUP MINI FIX ===== */
+.popup{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%) translateY(100px);
+background:linear-gradient(135deg,#ff0066,#ff8c00);
+color:#fff;
+padding:10px 18px;
+border-radius:30px;
+font-weight:600;
+font-size:13px;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+opacity:0;
+z-index:9999;
+}
+
+@keyframes slideIn{
+to{
+transform:translateX(-50%) translateY(0);
+opacity:1;
+}
+}
+
+@keyframes slideOut{
+to{
+transform:translateX(-50%) translateY(100px);
+opacity:0;
+}
+}
     footer{        
     margin:30px 15px 20px;        
     padding:20px 15px;        
@@ -178,26 +208,30 @@ from{transform:rotate(0deg) scale(1);}
 to{transform:rotate(360deg) scale(1.2);}
 }
 
-/* ===== MARQUEE ===== */
+/* ===== MARQUEE FIX ===== */
 .marquee{
-background:#1e293b;
-margin:10px 40px;      / thu hẹp chiều ngang /
-padding:6px 10px;      / giảm chiều cao /
-border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#ec4899,#7c3aed);
+margin:12px 20px;
+padding:8px 12px;
+border-radius:14px;
 overflow:hidden;
-font-size:13px;        / chữ nhỏ hơn */
+font-size:13px;
+color:#fff;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+position:relative;
 }
 
 .marquee p{
 white-space:nowrap;
-animation:marqueeRun 18s linear infinite;
+animation:marqueeRun 15s linear infinite;
+font-weight:600;
+letter-spacing:0.5px;
 }
 
 @keyframes marqueeRun{
-from{transform:translateX(100%)}
-to{transform:translateX(-100%)}
+0%{transform:translateX(100%)}
+100%{transform:translateX(-100%)}
 }
-
 /* ===== CARD ===== */
 .container{padding:15px;}
 
@@ -422,8 +456,8 @@ THAM GIA NHÓM ZALO
     <div class="old-price">200.000 đ</div>        
     <div class="new-price">130.000 đ</div>        
 </div>      <a href="chitieta1.html" class="detail-btn" onclick="return goDetail(event)">  XEM CHI TIẾT →  
-</a>  </div>  </div>  <div class="popup" id="popup">        
-    🔔 TH UY TÍN VCL        
+</a>  </div>  </div>  <div class="popup" id="popup">
+🔔 SHOP UY TÍN – HỖ TRỢ 24/7
 </div>  <script>        
 function toggleTheme(){        
     const body=document.body;        
