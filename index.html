@@ -6,142 +6,11 @@
 <title>SHOP TH</title>
 
 <style>
-    .popup-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.6);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-
-    opacity:0;
-    visibility:hidden;
-    transition:opacity 0.3s ease;
-}
-
-.popup-overlay.active{
-    opacity:1;
-    visibility:visible;
-}
-
-.popup-box{
-    width:90%;
-    max-width:380px;
-    background:#111c2e;
-    border-radius:18px;
-    padding:25px 20px;
-    text-align:center;
-    color:white;
-    box-shadow:0 15px 40px rgba(0,0,0,0.6);
-
-    transform:translateY(40px) scale(0.9);
-    transition:all 0.3s ease;
-}
-
-.popup-overlay.active .popup-box{
-    transform:translateY(0) scale(1);
-}
-
-.popup-btn{
-    display:block;
-    padding:12px;
-    margin:10px 0;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.popup-btn.fb{ background:#1877f2; color:white; }
-.popup-btn.zalo{ background:#0068ff; color:white; }
-
-.popup-btn:hover{
-    transform:scale(1.05);
-}
-
-.close-btn{
-    margin-top:15px;
-    background:#ff3b3b;
-    border:none;
-    padding:8px 18px;
-    border-radius:8px;
-    color:white;
-    cursor:pointer;
-}
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Segoe UI,sans-serif;
-}
-
-body{
-    background:#0f172a;
-    color:#f1f5f9;
-    transition:background 0.5s ease, color 0.5s ease;
-    animation:fadePage 0.8s ease;
-}
-
-body.light-mode{
-    background:#f1f5f9;
-    color:#0f172a;
-}
-
-body.light-mode header{
-    background:linear-gradient(90deg,#e2e8f0,#cbd5e1);
-}
-
-body.light-mode .marquee{
-    background:#e2e8f0;
-}
-
-body.light-mode .card{
-    background:#e2e8f0;
-}
-
-body.light-mode .popup{
-    background:#e2e8f0;
-}
-
-@keyframes fadePage{
-    from{opacity:0;transform:translateY(15px)}
-    to{opacity:1;transform:translateY(0)}
-}
-
-/* ===== HEADER ===== */
-header{
-    background: linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
-    padding:12px 15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-radius:20px;
-    margin:15px;
-    box-shadow:0 12px 35px rgba(0,0,0,0.45);
-    position:relative;
-    overflow:hidden;
-}
-
-header::before{
-    content:"";
-    position:absolute;
-    left:-50px;
-    top:-50px;
-    width:250px;
-    height:250px;
-    background:radial-gradient(circle at center,
-        rgba(139,92,246,0.35),
-        rgba(59,130,246,0.25),
-        transparent 70%);
-    filter:blur(40px);
-    z-index:0;
-}
 
 /* ===== LOGO ===== */
 .logo-wrap{
     width:100%;
-    height:90px;          /* giảm chiều cao khung */
+    height:90px;
     overflow:hidden;
     display:flex;
     align-items:center;
@@ -149,11 +18,12 @@ header::before{
 }
 
 .logo-img{
-    height:100%;          /* vừa khung */
+    height:100%;
     width:auto;
     object-fit:contain;
-    transform:scale(1.1); /* phóng nhẹ thôi */
+    transform:scale(1.1);
 }
+
 /* ===== ICON ===== */
 .header-icons{
     font-size:24px;
@@ -256,7 +126,7 @@ header::before{
     color:#facc15;
 }
 
-/* ===== NÚT CHI TIẾT (ĐÃ THÊM ANIMATION) ===== */
+/* ===== NÚT CHI TIẾT ===== */
 .btn{
     display:block;
     text-align:center;
@@ -287,90 +157,118 @@ header::before{
     100%{box-shadow:0 0 0 0 rgba(250,204,21,0);}
 }
 
-.popup{
+/* ===== POPUP (ĐÃ SỬA DUY NHẤT 1 PHIÊN BẢN) ===== */
+.popup-overlay{
     position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#1e293b;
-    padding:15px;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    width:280px;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s ease;
 }
+
+.popup-overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.popup-box{
+    width:90%;
+    max-width:380px;
+    background:#111c2e;
+    border-radius:18px;
+    padding:25px 20px;
+    text-align:center;
+    color:#fff;
+    box-shadow:0 15px 40px rgba(0,0,0,0.6);
+
+    transform:translateY(40px);
+    transition:transform .3s ease;
+}
+
+.popup-overlay.show .popup-box{
+    transform:translateY(0);
+}
+
+.popup-btn{
+    display:block;
+    padding:12px;
+    margin:10px 0;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.popup-btn.fb{ background:#1877f2; color:#fff; }
+.popup-btn.zalo{ background:#0068ff; color:#fff; }
+
+.close-btn{
+    margin-top:15px;
+    background:#ff3b3b;
+    border:none;
+    padding:8px 18px;
+    border-radius:8px;
+    color:#fff;
+    cursor:pointer;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#f1f5f9;
+    transition:background 0.5s ease, color 0.5s ease;
+    animation:fadePage 0.8s ease;
+}
+
+body.light-mode{
+    background:#ffffff;
+    color:#000000;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo-wrap">
-        <img src="images/logo3.png" class="logo-img">
-    </div>
-    <div class="header-icons">
-        <span id="themeIcon" class="theme-toggle" onclick="toggleTheme()">🌙</span>
-    </div>
-</header>
-
-<div class="marquee">
-    <p>🔥 Shop bán acc uy tín - Bảo hành gmail 7 ngày - Hỗ trợ 24/7 🔥</p>
-</div>
-
-<div class="container">
-    <div class="card">
-        <div class="image-wrap">
-            <img src="images/A4.jpg">
-            <div class="acc-id">MS: 000004</div>
-        </div>
-
-        <div class="badges">
-            <div class="badge">✔ acc dính xác minh</div>
-            <div class="badge">✔ bảo hành gmail 7 ngày</div>
-        </div>
-
-        <div class="price">130.000 đ</div>
-        <a href="detailacc1.html" class="btn">Chi Tiết</a>
-    </div>
-</div>
-
-<script>
-function toggleTheme(){
-    const body = document.body;
-    const icon = document.getElementById("themeIcon");
-
-    body.classList.toggle("light-mode");
-    icon.classList.add("rotate");
-
-    setTimeout(()=>{
-        if(body.classList.contains("light-mode")){
-            icon.textContent = "☀️";
-        }else{
-            icon.textContent = "🌙";
-        }
-        icon.classList.remove("rotate");
-    },250);
-}
-</script>
-<div id="popupOverlay" class="popup-overlay">
+<!-- POPUP -->
+<div id="popup" class="popup-overlay">
     <div class="popup-box">
-        <div class="popup-header">
-            <div class="popup-icon">🔔</div>
-            <h2>HỖ TRỢ & LIÊN HỆ</h2>
-        </div>
+        <h2>HỖ TRỢ & LIÊN HỆ</h2>
 
-        <p class="popup-sub">Chọn nền tảng để được hỗ trợ nhanh nhất</p>
+        <a href="https://facebook.com/yourlink" target="_blank" class="popup-btn fb">
+            Facebook
+        </a>
 
-        <div class="popup-buttons">
-            <a href="https://facebook.com/yourlink" target="_blank" class="popup-btn fb">
-                📘 Facebook
-            </a>
-
-            <a href="https://zalo.me/yourlink" target="_blank" class="popup-btn zalo">
-                💬 Zalo
-            </a>
-        </div>
+        <a href="https://zalo.me/yourlink" target="_blank" class="popup-btn zalo">
+            Zalo
+        </a>
 
         <button onclick="closePopup()" class="close-btn">Đóng</button>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    setTimeout(function(){
+        document.getElementById("popup").classList.add("show");
+    }, 400);
+});
+
+function closePopup(){
+    document.getElementById("popup").classList.remove("show");
+}
+</script>
+
 </body>
 </html>
