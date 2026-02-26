@@ -70,12 +70,12 @@ opacity:0.8;
 }
 
 /* light mode */
-body.light-mode footer{
+body.dark-mode footer{
 background:#ffffff;
 color:#0f172a;
 }
 
-body.light-mode .footer-links a{
+body.dark-mode .footer-links a{
 background:#e2e8f0;
 color:#0f172a;
 }
@@ -106,7 +106,7 @@ left:0;
 right:0;
 }
 
-body.light-mode .section-title{
+body.dark-mode .section-title{
 color:#0f172a;
 }
 .shop-notice-box{
@@ -126,34 +126,35 @@ transition:0.4s ease;
 }
 
 /* ===== DARK MODE (mặc định) ===== */
-body:not(.light-mode) .shop-notice-box{
+body:not(.dark-mode) .shop-notice-box{
 background:#1e293b;
 color:#f1f5f9;
 border:1px solid #334155;
 }
 
 /* ===== LIGHT MODE ===== */
-body.light-mode .shop-notice-box{
+body.dark-mode .shop-notice-box{
 background:#ffffff;
 color:#0f172a;
 border:1px solid #e2e8f0;
 }
+/* ===== MẶC ĐỊNH: NỀN TRẮNG ===== */
 body{
-background:#0f172a;
-color:#f1f5f9;
+background:#ffffff;
+color:#0f172a;
 transition:background 0.4s ease,color 0.4s ease;
 }
 
-/* ===== LIGHT MODE ===== */
-body.light-mode{
-background:#f1f5f9;
-color:#0f172a;
+/* ===== DARK MODE ===== */
+body.dark-mode{
+background:#0f172a;
+color:#f1f5f9;
 }
 
-body.light-mode header{background:#e2e8f0;}
-body.light-mode .marquee{background:#e2e8f0;}
-body.light-mode .card{background:#ffffff;}
-body.light-mode .popup{background:#ffffff;}
+body.dark-mode header{background:#e2e8f0;}
+body.dark-mode .marquee{background:#e2e8f0;}
+body.dark-mode .card{background:#ffffff;}
+body.dark-mode .popup{background:#ffffff;}
 
 /* ===== HEADER ===== */
 header{
@@ -192,7 +193,7 @@ transition:all 0.4s ease;
 box-shadow:0 4px 12px rgba(0,0,0,0.4);
 }
 
-body.light-mode .theme-toggle{
+body.dark-mode .theme-toggle{
 background:#cbd5e1;
 }
 
@@ -230,12 +231,12 @@ color:#ffffff; /* dark mode rõ nét */
 }
 
 /* Light mode */
-body.light-mode .marquee{
+body.dark-mode .marquee{
 background:#e2e8f0;
 border:1px solid rgba(0,0,0,0.05);
 }
 
-body.light-mode .marquee p{
+body.dark-mode .marquee p{
 color:#0f172a; /* chữ đậm, không bị mờ */
 }
 
@@ -475,8 +476,8 @@ THAM GIA NHÓM ZALO
 </div>  <script>        
 function toggleTheme(){        
     const body=document.body;        
-    const icon=document.getElementById("themeIcon");    icon.classList.add("theme-rotate");      body.classList.toggle("light-mode");  setTimeout(()=>{
-icon.textContent = body.classList.contains("light-mode") ? "☀️" : "🌙";
+    const icon=document.getElementById("themeIcon");    icon.classList.add("theme-rotate");      body.classList.toggle("dark-mode");  setTimeout(()=>{
+icon.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
 icon.classList.remove("theme-rotate");
 },300);
 
