@@ -473,21 +473,10 @@ window.addEventListener("DOMContentLoaded", function(){
 
   </div>
 </div>
-    <script>
-function openPayment(){
-    document.getElementById("paymentPopup").classList.add("active");
-}
-
-function goFacebook(){
-    window.location.href="https://www.facebook.com/share/1Q8MGeMzvT/?mibextid=wwXIfr"; 
-}
-    </script>
-    <script>
+ <script>
 function openPayment(){
 
     const accText = document.getElementById("accTitle").innerText;
-
-    // Lấy phần số phía sau
     const accNumber = accText.replace("Mã Acc ","");
 
     document.getElementById("popupAcc").innerText =
@@ -495,6 +484,10 @@ function openPayment(){
 
     document.getElementById("paymentPopup").classList.add("active");
 }
-    </script>
+
+function goFacebook(){
+    window.location.href="https://www.facebook.com/share/1Q8MGeMzvT/?mibextid=wwXIfr";
+}
+ </script>
 </body>
 </html>
