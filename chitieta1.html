@@ -6,31 +6,27 @@
 <title>Chi Tiết Acc</title>
 
 <style>
-    
-/* ===== FOOTER KHÔNG XUNG ĐỘT BACKGROUND ===== */
+/* ===== FOOTER GIỐNG MẪU ĐÃ GỬI ===== */
 
 footer{
-    width:100%;
-    max-width:500px;
-    margin:60px auto 30px;
-    padding:45px 25px;
+    width:90%;
+    max-width:600px;
+    margin:80px auto 40px;
+    padding:60px 30px;
     box-sizing:border-box;
-    border-radius:32px;
+
     text-align:center;
+    border-radius:36px;
 
-    /* chỉ tạo khối nổi, không ảnh hưởng nền trang */
-    background:rgba(36,50,71,0.95);
-    backdrop-filter:blur(4px);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,0.5);
+    background:#263445;
+    box-shadow:0 30px 80px rgba(0,0,0,0.7);
 }
 
 /* Tiêu đề */
 footer h3{
-    margin:0 0 30px;
-    font-size:30px;
-    letter-spacing:4px;
+    margin:0 0 45px;
+    font-size:36px;
+    letter-spacing:6px;
     font-weight:700;
     color:#f1f5f9;
 }
@@ -39,34 +35,42 @@ footer h3{
 .footer-links{
     display:flex;
     justify-content:center;
-    gap:24px;
+    gap:30px;
     flex-wrap:wrap;
-    margin-bottom:28px;
+    margin-bottom:40px;
 }
 
 /* Nút */
 .footer-links a{
     display:inline-block;
-    padding:16px 32px;
-    border-radius:22px;
-    background:#3a495e;
+    padding:20px 45px;
+    border-radius:28px;
+
+    background:#3f4f65;
+    color:#ffffff;
     text-decoration:none;
-    font-weight:600;
-    font-size:17px;
-    color:#f1f5f9;
-    transition:all 0.25s ease;
+
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:1px;
+
+    box-shadow:
+        inset 0 4px 10px rgba(0,0,0,0.35),
+        0 8px 25px rgba(0,0,0,0.4);
+
+    transition:0.25s ease;
 }
 
 .footer-links a:hover{
-    background:#46576f;
-    transform:translateY(-3px);
+    background:#4c5f78;
+    transform:translateY(-4px);
 }
 
 /* Copyright */
 footer p{
     margin:0;
-    font-size:16px;
-    color:#cbd5e1;
+    font-size:20px;
+    color:#d9e1ea;
 }
 
     /* Chặn lệch */
