@@ -434,13 +434,19 @@ THAM GIA NHÓM ZALO
     🔔 TH UY TÍN VCL
   </div>
 </div>  <script>          
-function toggleTheme(){          
-    const body=document.body;          
-    const icon=document.getElementById("themeIcon");    icon.classList.add("theme-rotate");      body.classList.toggle("light-mode");  setTimeout(()=>{  
-icon.textContent = body.classList.contains("light-mode") ? "☀️" : "🌙";  
-icon.classList.remove("theme-rotate");  
-},300);  }
+function toggleTheme(){
+    const body = document.body;
+    const icon = document.getElementById("themeIcon");
 
+    body.classList.toggle("light-mode");
+
+    const isLight = body.classList.contains("light-mode");
+
+    // lưu trạng thái
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+
+    icon.textContent = isLight ? "☀️" : "🌙";
+}
 window.addEventListener("load",function(){
 const popup=document.getElementById("popup");
 popup.style.animation="slideIn 0.6s forwards";
@@ -474,5 +480,17 @@ window.location.href = "chitieta1.html";
 },350);      
 return false;      
 }      
-</script>  </body>          
+</script>  
+<script>
+window.addEventListener("DOMContentLoaded", function(){
+    const savedTheme = localStorage.getItem("theme");
+
+    if(savedTheme === "light"){
+        document.body.classList.add("light-mode");
+        const icon = document.getElementById("themeIcon");
+        if(icon) icon.textContent = "☀️";
+    }
+});
+</script>. 
+</body>          
 </html>  
