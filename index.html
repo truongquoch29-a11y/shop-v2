@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>THTSCShop - Bảo trì hệ thống</title>
+<title>THTSCSHOP - Bảo trì hệ thống</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -22,20 +22,29 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+background:linear-gradient(120deg,#020617,#0f172a,#1e293b,#020617);
+background-size:400% 400%;
+animation:bgmove 12s ease infinite;
 color:white;
+overflow:hidden;
 }
 
-/* khung chính */
+@keyframes bgmove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* container */
 
 .container{
 text-align:center;
 padding:40px;
 border-radius:20px;
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(14px);
+backdrop-filter:blur(12px);
 border:1px solid rgba(255,255,255,0.12);
-box-shadow:0 0 50px rgba(0,0,0,0.6);
+box-shadow:0 0 50px rgba(0,0,0,0.7);
 max-width:500px;
 width:90%;
 }
@@ -43,25 +52,24 @@ width:90%;
 /* logo */
 
 .logo img{
-width:80px;
-height:80px;
+width:85px;
+height:85px;
 border-radius:50%;
 margin-bottom:15px;
 object-fit:cover;
+box-shadow:0 0 15px rgba(255,255,255,0.2);
 }
 
-/* tiêu đề */
+/* text */
 
 h1{
 font-size:32px;
 margin-bottom:10px;
-letter-spacing:1px;
 }
 
 h2{
-font-size:22px;
-margin-bottom:15px;
 font-weight:500;
+margin-bottom:15px;
 }
 
 p{
@@ -70,31 +78,58 @@ line-height:1.5;
 margin-bottom:25px;
 }
 
-/* icon bánh răng */
+/* gear frame */
 
-.gears{
-font-size:40px;
-margin-bottom:20px;
-opacity:0.9;
+.gear-box{
+width:110px;
+height:110px;
+margin:0 auto 25px auto;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+border:2px solid rgba(255,255,255,0.2);
+box-shadow:0 0 25px rgba(0,0,0,0.6) inset;
 }
 
-.gears i{
-margin:0 10px;
+.gear{
+font-size:48px;
+animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
 }
 
 /* footer */
 
 .footer{
-margin-top:20px;
+margin-top:10px;
 font-size:14px;
 opacity:0.8;
 }
 
-.footer a{
-color:white;
+.links{
+margin-top:12px;
+}
+
+.links a{
+display:inline-block;
 margin:0 10px;
-font-size:20px;
+font-size:22px;
+color:white;
 text-decoration:none;
+padding:10px;
+border-radius:10px;
+background:rgba(255,255,255,0.05);
+box-shadow:0 0 10px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.links a:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(255,255,255,0.3);
 }
 
 /* popup */
@@ -103,20 +138,54 @@ text-decoration:none;
 position:fixed;
 bottom:20px;
 right:20px;
-background:#111827;
+background:#0f172a;
 border:1px solid rgba(255,255,255,0.15);
-padding:12px 18px;
+padding:14px 18px;
 border-radius:12px;
 display:flex;
 align-items:center;
-gap:10px;
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
+gap:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.7);
 font-size:14px;
+animation:popupShow 0.5s ease;
 }
 
-.popup i{
+@keyframes popupShow{
+from{
+transform:translateY(40px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+
+/* icon loa */
+
+.speaker{
 font-size:18px;
 color:#60a5fa;
+animation:sound 1.2s infinite;
+}
+
+@keyframes sound{
+0%{transform:scale(1)}
+50%{transform:scale(1.2)}
+100%{transform:scale(1)}
+}
+
+/* ẩn popup */
+
+.hide{
+animation:popupHide 0.6s forwards;
+}
+
+@keyframes popupHide{
+to{
+opacity:0;
+transform:translateY(40px);
+}
 }
 
 </style>
@@ -135,14 +204,15 @@ color:#60a5fa;
 
 <p>Website đang được nâng cấp để mang lại trải nghiệm tốt hơn. Vui lòng quay lại sau.</p>
 
-<div class="gears">
-<i class="fa-solid fa-gear"></i>
-<i class="fa-solid fa-gear"></i>
+<div class="gear-box">
+<i class="fa-solid fa-gear gear"></i>
 </div>
 
 <div class="footer">
 
-<div style="margin-bottom:8px;">© 2026 THTSCShop</div>
+<div>© 2026 THTSCSHOP</div>
+
+<div class="links">
 
 <a href="https://facebook.com" target="_blank">
 <i class="fa-brands fa-facebook"></i>
@@ -156,10 +226,14 @@ color:#60a5fa;
 
 </div>
 
-<div class="popup">
-<i class="fa-solid fa-circle-info"></i>
+</div>
+
+<div class="popup" id="popup">
+<i class="fa-solid fa-bullhorn speaker"></i>
 <span>Shop đang bảo trì, hãy liên hệ hỗ trợ</span>
 </div>
 
-</body>
-</html>
+<script>
+
+setTimeout(function(){
+document.getElementById("popup
