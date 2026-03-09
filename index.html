@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>THTSCSHOP - Bảo trì hệ thống</title>
+<title>THTSCShop - Bảo trì hệ thống</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -35,8 +35,6 @@ overflow:hidden;
 100%{background-position:0% 50%}
 }
 
-/* container */
-
 .container{
 text-align:center;
 padding:40px;
@@ -49,8 +47,6 @@ max-width:500px;
 width:90%;
 }
 
-/* logo */
-
 .logo img{
 width:85px;
 height:85px;
@@ -59,8 +55,6 @@ margin-bottom:15px;
 object-fit:cover;
 box-shadow:0 0 15px rgba(255,255,255,0.2);
 }
-
-/* text */
 
 h1{
 font-size:32px;
@@ -77,8 +71,6 @@ opacity:0.85;
 line-height:1.5;
 margin-bottom:25px;
 }
-
-/* gear frame */
 
 .gear-box{
 width:110px;
@@ -101,8 +93,6 @@ animation:spin 4s linear infinite;
 from{transform:rotate(0deg)}
 to{transform:rotate(360deg)}
 }
-
-/* footer */
 
 .footer{
 margin-top:10px;
@@ -132,7 +122,7 @@ transform:translateY(-3px);
 box-shadow:0 0 20px rgba(255,255,255,0.3);
 }
 
-/* popup */
+/* POPUP */
 
 .popup{
 position:fixed;
@@ -147,18 +137,33 @@ align-items:center;
 gap:12px;
 box-shadow:0 10px 30px rgba(0,0,0,0.7);
 font-size:14px;
-animation:popupShow 0.5s ease;
+opacity:0;
+transform:translateY(40px);
+animation:popupAnimation 5s forwards;
 }
 
-@keyframes popupShow{
-from{
-transform:translateY(40px);
+@keyframes popupAnimation{
+
+0%{
 opacity:0;
+transform:translateY(40px);
 }
-to{
-transform:translateY(0);
+
+10%{
 opacity:1;
+transform:translateY(0);
 }
+
+85%{
+opacity:1;
+transform:translateY(0);
+}
+
+100%{
+opacity:0;
+transform:translateY(40px);
+}
+
 }
 
 /* icon loa */
@@ -171,21 +176,8 @@ animation:sound 1.2s infinite;
 
 @keyframes sound{
 0%{transform:scale(1)}
-50%{transform:scale(1.2)}
+50%{transform:scale(1.25)}
 100%{transform:scale(1)}
-}
-
-/* ẩn popup */
-
-.hide{
-animation:popupHide 0.6s forwards;
-}
-
-@keyframes popupHide{
-to{
-opacity:0;
-transform:translateY(40px);
-}
 }
 
 </style>
@@ -210,7 +202,7 @@ transform:translateY(40px);
 
 <div class="footer">
 
-<div>© 2026 THTSCSHOP</div>
+<div>© 2026 THTSCShop</div>
 
 <div class="links">
 
@@ -228,12 +220,10 @@ transform:translateY(40px);
 
 </div>
 
-<div class="popup" id="popup">
+<div class="popup">
 <i class="fa-solid fa-bullhorn speaker"></i>
 <span>Shop đang bảo trì, hãy liên hệ hỗ trợ</span>
 </div>
 
-<script>
-
-setTimeout(function(){
-document.getElementById("popup
+</body>
+</html>
